@@ -94,6 +94,24 @@ void Player::draw()
     text.setPosition(getRect().left, getRect().top-5);
 
     g_window.draw(text);
+
+
+    if(life!=100){//print life bar
+        //background
+        RectangleShape rect;
+        rect.setSize(sf::Vector2f(32, 3));
+        rect.setOutlineColor(sf::Color::Green);
+        rect.setFillColor(sf::Color::Transparent);
+        rect.setOutlineThickness(1.f);
+        rect.setPosition(getRect().left, getRect().top-5);
+        g_window.draw(rect);
+
+
+        rect.setSize(sf::Vector2f(32*life/100, 3));
+        rect.setFillColor(sf::Color::Green);
+        rect.setOutlineThickness(0.f);
+        g_window.draw(rect);
+    }
 }
 
 bool Player::mustRemove() const
