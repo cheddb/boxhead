@@ -39,16 +39,19 @@ bool World::isFree(const IntRect &r, Entity *exeption) const
     return true;
 }
 
-std::vector<Player *> World::collision(const IntRect &r) const
-{
-
+std::vector<Player *> World::collision(const IntRect &r) const{
+    assert(false);
 }
 
-void World::areaEffect(const IntRect &r, EntityCallback callback){
+int World::areaEffect(const IntRect &r, EntityCallback callback){
+    int ans = 0;
     for(int i = 0; i < nbEntities; i++){
-        if(entities[i]->getRect().intersects(r))
+        if(entities[i]->getRect().intersects(r)){
             callback(entities[i]);
+            ans++;
+        }
     }
+    return ans;
 }
 
 void World::frame()

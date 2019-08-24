@@ -15,6 +15,8 @@ public:
 
     IntRect getRect() const;
 
+    Type getType() const{return Type_Enemy;}
+
 };
 
 #endif // ENEMY_H

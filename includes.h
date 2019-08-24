@@ -5,6 +5,7 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <math.h>
+#include <cassert>
 
 struct Pos{
     int x,  y;

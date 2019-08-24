@@ -13,6 +13,9 @@ public:
 
     virtual void draw();
     virtual void frame();
+
+    Type getType() const{return Type_Projectile;}
+
 };
 
 #endif // PROJECTILE_H
