@@ -58,6 +58,8 @@ void World::frame()
     {
         entities[i]->frame();
     }
+
+    cleanEntities();
 }
 
 void World::draw()
@@ -87,4 +89,6 @@ void World::cleanEntities()
             i--;
         }
     }
+
+
 }
