@@ -21,6 +21,7 @@ struct Pos{
     float norm() const{return sqrtf(float(x)*x+float(y)*y);}
 
     Pos operator*(float k) const{return Pos(int(x*k),int(y*k));}
+    Pos& operator*=(float k) {x *=k; y*=k;return *this;}
     Pos operator/(float k) const{return Pos(int(x/k),int(y/k));}
 };
 struct Rect{

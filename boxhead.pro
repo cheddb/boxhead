@@ -25,7 +25,8 @@ SOURCES += \
     player.cpp \
     tower.cpp \
     texturemanager.cpp \
-    spawn.cpp
+    spawn.cpp \
+    map.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -41,4 +42,5 @@ HEADERS += \
     tower.h \
     includes.h \
     texturemanager.h \
-    spawn.h
+    spawn.h \
+    map.h
