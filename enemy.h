@@ -16,7 +16,8 @@ public:
     IntRect getRect() const;
 
     Type getType() const{return Type_Enemy;}
-
+protected:
+    int move;
 };
 
 #endif // ENEMY_H

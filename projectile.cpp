@@ -30,6 +30,7 @@ Projectile::~Projectile()
 
 void Projectile::frame()
 {
+
     for(int i=0; i<speed;i++)
     {
         pos += dir;

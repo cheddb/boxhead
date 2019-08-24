@@ -8,6 +8,7 @@ Enemy::Enemy(Pos start) : Entity()
     sprite.setTexture(g_tex.getTexture(TextureManager::Log));
     sprite.setTextureRect(IntRect(0, 0, 32, 32));
     life = 30;
+    move=0;
 }
 Enemy::~Enemy(){
 
@@ -15,22 +16,39 @@ Enemy::~Enemy(){
 
 
 void Enemy::frame(){
-    IntRect r;
-    r = getRect();
+    if(move == 0)
+    {
+        IntRect r, rx, ry;
+        r = getRect();
+        rx = getRect();
+        ry = getRect();
 
-    Player* p = g_world.getPlayer();
+        Player* p = g_world.getPlayer();
 
-    Pos dir = p->getPos()-pos;
-    dir *= 2.f / dir.norm(); // speed of 5
+        Pos dir = p->getPos()-pos;
+        dir *= 2.f / dir.norm(); // speed of 5
 
-    r.top += dir.y;
-    r.left += dir.x;
+        r.top += dir.y;
+        r.left += dir.x;
+        ry.top += dir.y+1;
+        rx.left += dir.x+1;
 
-    if(g_world.isFree(r, this)){
-        pos.x = r.left+16;
-        pos.y = r.top+16;
+        if(g_world.isFree(r, this)){
+            pos.x = r.left+16;
+            pos.y = r.top+16;
+        }
+        else if(g_world.isFree(rx, this)){
+            pos.x = rx.left+16;
+            pos.y = rx.top+16;
+        }
+        else if(g_world.isFree(ry, this)){
+            pos.x = ry.left+16;
+            pos.y = ry.top+16;
+        }
+        move=3;
     }
-
+    else
+        move--;
 }
 
 IntRect Enemy::getRect() const{
