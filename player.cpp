@@ -93,7 +93,7 @@ void Player::draw()
 
 bool Player::mustRemove() const
 {
-    return false;
+    return life<=0;
 }
 
 IntRect Player::getRect() const{

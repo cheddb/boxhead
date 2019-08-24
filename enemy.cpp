@@ -2,6 +2,15 @@
 #include "texturemanager.h"
 #include "world.h"
 
+bool attack(Entity* e){
+  if(e->getType() == Entity::Type_Player)
+  {
+    e->getDamages(1);
+    return true;
+  }
+  return false;
+}
+
 Enemy::Enemy(Pos start) : Entity()
 {
     pos = start;
@@ -37,13 +46,17 @@ void Enemy::frame(){
             pos.x = r.left+16;
             pos.y = r.top+16;
         }
-        else if(g_world.isFree(rx, this)){
+        else
+        {
+            g_world.areaEffect(r, attack);
+            if(g_world.isFree(rx, this)){
             pos.x = rx.left+16;
             pos.y = rx.top+16;
-        }
-        else if(g_world.isFree(ry, this)){
-            pos.x = ry.left+16;
-            pos.y = ry.top+16;
+            }
+            else if(g_world.isFree(ry, this)){
+                pos.x = ry.left+16;
+                pos.y = ry.top+16;
+            }
         }
         move=3;
     }
