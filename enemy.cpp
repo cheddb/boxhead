@@ -41,6 +41,23 @@ IntRect Enemy::getRect() const{
 void Enemy::draw(){
     sprite.setPosition(getRect().left, getRect().top);
     g_window.draw(sprite);
+    if(life!=30){//print life bar
+
+        //background
+        RectangleShape rect;
+        rect.setSize(sf::Vector2f(32, 3));
+        rect.setOutlineColor(sf::Color::Green);
+        rect.setFillColor(sf::Color::Transparent);
+        rect.setOutlineThickness(1.f);
+        rect.setPosition(getRect().left, getRect().top-5);
+        g_window.draw(rect);
+
+
+        rect.setSize(sf::Vector2f(32*life/30, 3));
+        rect.setFillColor(sf::Color::Green);
+        rect.setOutlineThickness(0.f);
+        g_window.draw(rect);
+    }
 }
 
 bool Enemy::mustRemove() const{

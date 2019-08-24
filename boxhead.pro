@@ -3,7 +3,7 @@ QT -= gui
 CONFIG += c++11
 CONFIG -= app_bundle
 
-LIBS += -lsfml-graphics -lsfml-window -lsfml-system
+LIBS += -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
