@@ -76,8 +76,8 @@ void Player::frame()
         initial_pos = Pos(pos.x-14, pos.y);
 
       Projectile* created = new Projectile(initial_pos);
-      Pos objective = Pos(m_worldPos.x*10, m_worldPos.y*10);
-      created->dir = ((objective-pos)*256)/(objective+pos).norm();
+      Pos objective = Pos(delta_x*10, delta_y*10);
+      created->dir = objective*(256.f/objective.norm());
       g_world.addEntity(created);
 
     }
