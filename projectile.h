@@ -6,13 +6,15 @@
 class Projectile : public Entity
 {
 public:
-    Projectile();
+    Projectile(Pos start);
     ~Projectile();
 
-    virtual bool mustRemove() const;
+    bool mustRemove() const;
 
-    virtual void draw();
-    virtual void frame();
+    void draw();
+    void frame();
+    IntRect getRect() const;
+
 
     Pos dir;
     int speed;
