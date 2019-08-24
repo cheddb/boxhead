@@ -4,7 +4,7 @@ ENTITIES= entity.o enemy.o player.o projectile.o tower.o
 DEPS= includes.h
 
 SFML= -lsfml-graphics -lsfml-window -lsfml-system
-CC=gcc
+CC=g++
 CFLAGS=-I. $(SFML)
 
 %.o: %.cpp %.h $(DEPS)

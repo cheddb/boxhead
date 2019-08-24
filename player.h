@@ -6,6 +6,7 @@
 class Player : public Entity{
 public:
     Player();
+    ~Player();
     bool mustRemove() const;
 
     void draw();

@@ -7,6 +7,8 @@ class Projectile : public Entity
 {
 public:
     Projectile();
+    ~Projectile();
+
     virtual bool mustRemove() const;
 
     virtual void draw();

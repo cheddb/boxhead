@@ -4,6 +4,9 @@ Player::Player()
 {
     life = 100;
 }
+Player::~Player()
+{
+}
 
 
 void Player::frame()
