@@ -18,6 +18,11 @@ public:
     /// true if the given rect is intersecting with nothing. The entity 'exeption' is not checked
     bool isFree(IntRect const& r, Entity *exeption=nullptr) const;
 
+    /// return a list of colliding entities with the given rect
+    std::vector<Player *> collision(IntRect const& r) const;
+
+
+    void areaEffect(IntRect const& r, );
 private:
     static const int max_entities = 500;
     Entity *entities[max_entities];
