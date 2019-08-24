@@ -1,6 +1,6 @@
 EXEC= BOXHead
-GAME= main.o camera.o world.o
-ENTITIES= entity.o enemy.o player.o projectile.o tower.o
+GAME= main.o camera.o world.o texturemanager.o
+ENTITIES= entity.o enemy.o player.o projectile.o tower.o spawn.o
 DEPS= includes.h
 
 SFML= -lsfml-graphics -lsfml-window -lsfml-system

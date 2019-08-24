@@ -1,10 +1,15 @@
 #include "world.h"
 
 #include "player.h"
+#include "spawn.h"
+
+
+
 World::World()
 {
     entities[0] = new Player();
-    nbEntities = 1;
+    entities[1] = new Spawn();
+    nbEntities = 2;
 }
 
 World::~World()

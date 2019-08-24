@@ -1,8 +1,8 @@
 #include "enemy.h"
 
-Enemy::Enemy()
+Enemy::Enemy(Pos start)
 {
-
+    pos = start;
 }
 Enemy::~Enemy()
 {
