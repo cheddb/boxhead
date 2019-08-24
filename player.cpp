@@ -1,6 +1,7 @@
 #include "player.h"
 #include "texturemanager.h"
 #include "world.h"
+#include "projectile.h"
 
 Player::Player() : Entity()
 {
@@ -19,10 +20,10 @@ void Player::frame()
     int oldX = pos.x;
     int oldY = pos.y;
 
-    Vector2i pixelPos = sf::Mouse::getPosition(g_window);
-    Vector2f worldPos = g_window.mapPixelToCoords(pixelPos);
-    float delta_y = (worldPos.y - pos.y);
-    float delta_x = (worldPos.x - pos.x);
+    Vector2i m_pixelPos = sf::Mouse::getPosition(g_window);
+    Vector2f m_worldPos = g_window.mapPixelToCoords(m_pixelPos);
+    float delta_y = (m_worldPos.y - pos.y);
+    float delta_x = (m_worldPos.x - pos.x);
     if(delta_y>abs(delta_x))
       anim_dir = 0;
     else if(delta_x>abs(delta_y))
@@ -66,6 +67,25 @@ void Player::frame()
         anim_step = 0;
       }
       anim_counter = 0;
+    }
+
+    if(Mouse::isButtonPressed(Mouse::Left))
+    {
+      Pos initial_pos;
+      if(delta_y>abs(delta_x))
+        initial_pos = Pos(pos.x+8, pos.y+29);
+      else if(delta_x>abs(delta_y))
+        initial_pos = Pos(pos.x+16, pos.y+15);
+      else if(delta_y < -abs(delta_x))
+        initial_pos = Pos(pos.x+8, pos.y);
+      else
+        initial_pos = Pos(pos.x, pos.y+15);
+
+      Projectile* created = new Projectile(initial_pos);
+      Pos objective = Pos(m_worldPos.x*10, m_worldPos.y*10);
+      created->dir = ((objective-pos)*256)/(objective+pos).norm();
+      g_world.addEntity(created);
+
     }
 
 }

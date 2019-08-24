@@ -12,10 +12,12 @@ bool collision(Entity* e){
 }
 
 
-Projectile::Projectile() : Entity()
+Projectile::Projectile(Pos start) : Entity()
 {
+  pos = start;
+
   life=100;
-  speed=3; //TODO change in fct of projectile
+  speed=1; //TODO change in fct of projectile
   sprite.setTexture(g_tex.getTexture(TextureManager::Objects));
   sprite.setTextureRect(IntRect(231, 56, 1, 1));
 }
@@ -32,7 +34,7 @@ void Projectile::frame()
     return;
   for(int i=0; i<speed;++i)
   {
-    pos += dir;
+    pos += dir/32;
     if(g_world.areaEffect(IntRect(pos.x, pos.y, 1, 1), collision)>1)
     {
       life=0;
@@ -54,4 +56,8 @@ void Projectile::draw()
 
 bool Projectile::mustRemove() const {
     return life==0;
+}
+
+IntRect Projectile::getRect() const{
+    return IntRect(pos.x, pos.y, 1, 1);
 }
