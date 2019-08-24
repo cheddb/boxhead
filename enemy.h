@@ -7,6 +7,7 @@ class Enemy : public Entity{
 public:
     Enemy(Pos start);
     ~Enemy();
+
     bool mustRemove() const;
 
     void draw();

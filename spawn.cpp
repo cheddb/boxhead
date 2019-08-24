@@ -5,7 +5,7 @@
 
 #include <iostream>
 
-Spawn::Spawn()
+Spawn::Spawn() : Entity()
 {
     pos.x = 50;
     pos.y = 0;

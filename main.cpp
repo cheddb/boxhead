@@ -46,7 +46,7 @@ int main(){
 
         sf::sleep(sf::milliseconds(15));
 
-        view.reset(sf::FloatRect(g_world.getPlayer()->pos().x-400, g_world.getPlayer()->pos().y-300, 800, 600));
+        view.reset(sf::FloatRect(g_world.getPlayer()->getPos().x-400, g_world.getPlayer()->getPos().y-300, 800, 600));
 
         g_world.frame();
 

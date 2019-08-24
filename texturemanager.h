@@ -7,6 +7,7 @@ class TextureManager{
 public:
     enum {
         Character,///texture of the character
+        Log,
 
         NbTexture
     };

@@ -2,6 +2,7 @@
 
 TextureManager::TextureManager(){
     atlas[Character].loadFromFile("gfx/character.png");
+    atlas[Log].loadFromFile("gfx/log.png");
 }
 
 
