@@ -10,3 +10,7 @@ Entity::~Entity()
 
 }
 
+void Entity::getDamages(int damages)
+{
+	life-= damages;
+}

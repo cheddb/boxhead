@@ -13,6 +13,7 @@ public:
 
     virtual void draw() = 0;
     virtual void frame() = 0;
+    void getDamages(int damages);
 
     enum Type{
         Type_Enemy, Type_Projectile, Type_Player, Type_Tower, Type_Spawner

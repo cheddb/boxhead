@@ -1,4 +1,16 @@
 #include "projectile.h"
+#include "texturemanager.h"
+#include "world.h"
+
+bool collision(Entity* e){
+  if(e->getType() != Entity::Type_Projectile)
+  {
+    e->getDamages(1);
+    return true;
+  }
+  return false;
+}
+
 
 Projectile::Projectile() : Entity()
 {
@@ -21,8 +33,9 @@ void Projectile::frame()
   for(int i=0; i<speed;++i)
   {
     pos += dir;
-    if(!g_world.areaEffect(IntRect(pos.x, pos.y, 1, 1), collision))
+    if(g_world.areaEffect(IntRect(pos.x, pos.y, 1, 1), collision)>1)
     {
+      life=0;
       return;
     }
   }
@@ -41,12 +54,4 @@ void Projectile::draw()
 
 bool Projectile::mustRemove() const {
     return life==0;
-}
-
-void collision(Entity* e){
-  if(!PROJECTILE)
-  {
-    e.life--;
-    life=0;
-  }
 }
