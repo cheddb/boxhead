@@ -19,12 +19,15 @@ Spawn::~Spawn()
 
 void Spawn::frame()
 {
-    frameSinceLastSpawn++;
-    if(frameSinceLastSpawn%spawnRate==0)
-    {
-        Enemy* created = new Enemy(pos);
-        g_world.addEntity(created);
+    if(frameSinceLastSpawn%spawnRate==0){
+        Enemy* created = new Enemy(pos + Pos(30, 0));
+
+        if(g_world.isFree(created->getRect(), nullptr))
+            g_world.addEntity(created);
+        else
+            delete created;
     }
+    frameSinceLastSpawn++;
 }
 
 
@@ -38,5 +41,5 @@ bool Spawn::mustRemove() const {
 }
 
 IntRect Spawn::getRect() const{
-    return IntRect(pos.x-16, pos.y-16, 32, 32);
+    return IntRect(pos.x, pos.y, 0, 0);
 }
