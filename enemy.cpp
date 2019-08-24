@@ -41,8 +41,9 @@ IntRect Enemy::getRect() const{
 void Enemy::draw(){
     sprite.setPosition(getRect().left, getRect().top);
     g_window.draw(sprite);
-    if(life!=30){//print life bar
 
+
+    if(life!=30){//print life bar
         //background
         RectangleShape rect;
         rect.setSize(sf::Vector2f(32, 3));

@@ -10,6 +10,8 @@ Player::Player() : Entity()
     sprite.setTextureRect(IntRect(0, 0, 16, 29));
 
     shotgunSound.loadFromFile("gfx/shotgun.ogg");
+    dryGunSound.loadFromFile("gfx/gun-dry.wav");
+    amo[Shotgun] = 10;
 }
 Player::~Player()
 {
@@ -65,33 +67,28 @@ void Player::frame()
         anim_counter = 0;
     }
 
+
     static int counter = 0;
     counter++;
 
-    if(Mouse::isButtonPressed(Mouse::Left) && counter%10==0)
-    {
-        Pos initial_pos=pos;
-
-        Pos dir = Pos(delta_x, delta_y).normalize()*8.f;
-        Projectile* created = new Projectile(initial_pos+dir*2.f);
-        created->dir = dir;
-        g_world.addEntity(created);
-
-        sound.setBuffer(shotgunSound);
-        sound.play();
-    }
+    if(Mouse::isButtonPressed(Mouse::Left))
+        shoot(Pos(delta_x, delta_y));
 }
 
 
 void Player::draw()
 {
-  int s_pos_x = anim_step*16;
-  int s_pos_y = anim_dir;
+    int s_pos_x = anim_step*16;
+    int s_pos_y = anim_dir;
 
-  sprite.setPosition(float(pos.x-8), float(pos.y-15));
+    sprite.setPosition(float(pos.x-8), float(pos.y-15));
 
-  sprite.setTextureRect( IntRect(s_pos_x, s_pos_y, 16, 29));
-  g_window.draw(sprite);
+    sprite.setTextureRect( IntRect(s_pos_x, s_pos_y, 16, 29));
+    g_window.draw(sprite);
+
+    sf::Text text("Hello SFML", g_font, 30);
+
+    g_window.draw(text);
 }
 
 bool Player::mustRemove() const
@@ -101,4 +98,37 @@ bool Player::mustRemove() const
 
 IntRect Player::getRect() const{
     return IntRect(pos.x-8, pos.y-15, 16, 29);
+}
+
+void Player::shoot(Pos viewDir){
+    //4 shot / sec
+    static Clock clock;
+    if(clock.getElapsedTime().asMilliseconds() < 250)
+        return;
+    clock.restart();
+
+
+
+    //check amo
+    if(amo[weapon] == 0){
+        sound.setBuffer(dryGunSound);
+        sound.play();
+
+        return;
+    }
+
+    //ok, shot
+    amo[weapon]--;
+
+
+    Pos initial_pos=pos;
+
+    Pos dir = viewDir.normalize()*8.f;
+    Projectile* created = new Projectile(initial_pos+dir*2.f);
+    created->dir = dir;
+    g_world.addEntity(created);
+
+    sound.setBuffer(shotgunSound);
+    sound.play();
+
 }
