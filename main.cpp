@@ -1,10 +1,11 @@
 #include "includes.h"
 #include "world.h"
 
+World g_world;
+
 int main(){
     // Create the main window
     sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
-    World w;
 
 //    // Load a sprite to display
 //    sf::Texture texture;
@@ -38,9 +39,10 @@ int main(){
 
         sf::sleep(sf::milliseconds(16));
 
-        w.frame();
+        g_world.frame();
 
-        w.draw();
+        g_world.draw();
+
         // Update the window
         window.display();
     }
