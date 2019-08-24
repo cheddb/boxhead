@@ -14,9 +14,15 @@ Enemy::~Enemy(){
 
 
 void Enemy::frame(){
-    pos.x += rand()%3 - 1;
-    pos.y += rand()%3 - 1;
+    IntRect r;
+    r = getRect();
+    r.top += rand() %3 - 1;
+    r.left += rand() %3 - 1;
 
+    if(g_world.isFree(r, this)){
+        pos.x = r.left+16;
+        pos.y = r.top+16;
+    }
 
 }
 
