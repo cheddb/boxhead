@@ -6,10 +6,10 @@
 class Player : public Entity{
 public:
     Player();
-    virtual bool mustRemove();
+    bool mustRemove() const;
 
-    virtual void draw();
-    virtual void frame();
+    void draw();
+    void frame();
 };
 
 #endif // PLAYER_H

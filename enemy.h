@@ -6,6 +6,10 @@
 class Enemy : public Entity{
 public:
     Enemy();
+    bool mustRemove() const;
+
+    void draw();
+    void frame();
 };
 
 #endif // ENEMY_H
