@@ -27,6 +27,18 @@ Player* World::getPlayer()
     return player;
 }
 
+bool World::isFree(const IntRect &r, Entity *exeption) const
+{
+    for(int i = 0; i < nbEntities; i++){
+        if(entities[i] == exeption) continue;
+
+        if(entities[i]->getRect().intersects(r))
+            return false;
+    }
+
+    return true;
+}
+
 void World::frame()
 {
     for(int i = 0;i<nbEntities;i++)

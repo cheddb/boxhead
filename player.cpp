@@ -45,3 +45,8 @@ bool Player::mustRemove() const
 {
     return false;
 }
+
+IntRect Player::getRect() const{
+    return IntRect(pos.x-8, pos.y-15, 16, 29);
+}
+

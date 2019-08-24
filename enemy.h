@@ -12,6 +12,9 @@ public:
 
     void draw();
     void frame();
+
+    IntRect getRect() const;
+
 };
 
 #endif // ENEMY_H

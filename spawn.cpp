@@ -36,3 +36,7 @@ void Spawn::draw()
 bool Spawn::mustRemove() const {
     return false;
 }
+
+IntRect Spawn::getRect() const{
+    return IntRect(pos.x-16, pos.y-16, 32, 32);
+}

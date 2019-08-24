@@ -14,6 +14,8 @@ public:
     virtual void draw();
     virtual void frame();
     
+    IntRect getRect() const;
+
 private:
     
     int frameSinceLastSpawn;

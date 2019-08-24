@@ -15,6 +15,8 @@ public:
     virtual void frame() = 0;
 
     inline Pos getPos() const{return pos;}
+
+    virtual IntRect getRect() const = 0;
 protected:
     int life;
     Pos pos;

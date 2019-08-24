@@ -15,6 +15,8 @@ public:
     void frame();
     Player* getPlayer();
 
+    /// true if the given rect is intersecting with nothing. The entity 'exeption' is not checked
+    bool isFree(IntRect const& r, Entity *exeption=nullptr) const;
 
 private:
     static const int max_entities = 500;

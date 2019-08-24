@@ -1,5 +1,6 @@
 #include "enemy.h"
 #include "texturemanager.h"
+#include "world.h"
 
 Enemy::Enemy(Pos start) : Entity()
 {
@@ -13,7 +14,14 @@ Enemy::~Enemy(){
 
 
 void Enemy::frame(){
-    pos.x += rand()%2;
+    pos.x += rand()%3 - 1;
+    pos.y += rand()%3 - 1;
+
+
+}
+
+IntRect Enemy::getRect() const{
+    return IntRect(pos.x-16, pos.y-16, 32, 32);
 }
 
 

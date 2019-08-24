@@ -11,6 +11,9 @@ public:
 
     void draw();
     void frame();
+
+    IntRect getRect() const;
+
 };
 
 #endif // PLAYER_H
