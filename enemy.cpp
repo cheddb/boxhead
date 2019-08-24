@@ -7,6 +7,7 @@ Enemy::Enemy(Pos start) : Entity()
     pos = start;
     sprite.setTexture(g_tex.getTexture(TextureManager::Log));
     sprite.setTextureRect(IntRect(0, 0, 32, 32));
+    life = 30;
 }
 Enemy::~Enemy(){
 
