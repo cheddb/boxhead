@@ -49,9 +49,17 @@ void Player::frame()
         pos.y ++;
     }
 
-    if(pos.y != oldY || pos.x != oldX)
+    if(anim_counter++ > 10)
     {
-      ++anim_step %= 4;
+      if(pos.y != oldY || pos.x != oldX)
+      {
+        ++anim_step %= 4;
+      }
+      else
+      {
+        anim_step = 0;
+      }
+      anim_counter = 0;
     }
 
 }

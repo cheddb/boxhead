@@ -12,6 +12,7 @@ public:
 
     int anim_step;
     int anim_dir;
+    int anim_counter;
 
     void draw();
     void frame();
