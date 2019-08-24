@@ -3,6 +3,7 @@
 #include "player.h"
 #include "spawn.h"
 
+#include <iostream>
 
 
 World::World()
@@ -44,6 +45,7 @@ void World::draw()
 
 void World::addEntity(Entity *e)
 {
+    if(nbEntities>=max_entities)return;
     entities[nbEntities] = e;
     nbEntities ++;
 }
