@@ -8,6 +8,10 @@ class Tower : public Entity
 {
 public:
     Tower();
+    virtual bool mustRemove() const;
+
+    virtual void draw();
+    virtual void frame();
 };
 
 #endif // TOWER_H
