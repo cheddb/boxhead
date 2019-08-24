@@ -116,11 +116,15 @@ void Player::draw()
 
 bool Player::mustRemove() const
 {
-    return life<=0;
+    return false;
 }
 
 IntRect Player::getRect() const{
     return IntRect(pos.x-8, pos.y-15, 16, 29);
+}
+
+void Player::reload(){
+    amo[rand()%NbWeapon] = 10;
 }
 
 void Player::shoot(Pos viewDir){

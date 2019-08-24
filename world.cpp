@@ -3,19 +3,18 @@
 #include "player.h"
 #include "spawn.h"
 
-#include <iostream>
-
+#include "item.h"
 
 World::World()
 {
+    srand(time(nullptr));
     player = new Player();
     entities[0] = player;
     entities[1] = new Spawn();
     nbEntities = 2;
 }
 
-World::~World()
-{
+World::~World(){
     for(int i = 0;i<nbEntities;i++)
     {
         delete entities[i];
@@ -30,7 +29,7 @@ Player* World::getPlayer()
 bool World::isFree(const IntRect &r, Entity *exeption) const
 {
     for(int i = 0; i < nbEntities; i++){
-        if(entities[i] == exeption) continue;
+        if(entities[i] == exeption || entities[i]->getType()==Entity::Type_Item) continue;
 
         if(entities[i]->getRect().intersects(r))
             return false;
@@ -54,6 +53,11 @@ int World::areaEffect(const IntRect &r, EntityCallback callback){
 
 void World::frame()
 {
+    //add some chests
+    if(rand() % 60 == 0)
+        addEntity(new Item());
+
+
     for(int i = 0;i<nbEntities;i++)
     {
         entities[i]->frame();
@@ -88,6 +92,4 @@ void World::cleanEntities()
             i--;
         }
     }
-
-
 }

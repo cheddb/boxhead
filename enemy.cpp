@@ -65,7 +65,7 @@ void Enemy::frame(){
 }
 
 IntRect Enemy::getRect() const{
-    return IntRect(pos.x-16, pos.y-16, 32, 32);
+    return IntRect(int(pos.x)-16, int(pos.y)-16, 32, 32);
 }
 
 

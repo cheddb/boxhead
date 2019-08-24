@@ -22,6 +22,8 @@ public:
 
     Type getType() const{return Type_Player;}
 
+    /// reload completely a random weapon
+    void reload();
 private:
     SoundBuffer shotgunSound, dryGunSound;
     sf::Sound sound;
