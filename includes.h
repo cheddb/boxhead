@@ -40,4 +40,6 @@ extern World g_world;
 
 extern RenderWindow g_window;
 
+extern Font g_font;
+
 #endif // INCLUDES_H

@@ -23,9 +23,21 @@ public:
     Type getType() const{return Type_Player;}
 
 private:
-    SoundBuffer shotgunSound;
+    SoundBuffer shotgunSound, dryGunSound;
     sf::Sound sound;
 
+
+    enum Weapon{
+        Shotgun, Grenade,
+        NbWeapon
+    };
+
+    /// nb of ammunition per weapon
+    int amo[NbWeapon] = {0};
+    Weapon weapon = Shotgun;
+
+
+    void shoot(Pos viewDir);
 };
 
 #endif // PLAYER_H
