@@ -1,5 +1,6 @@
 #include "player.h"
 #include "texturemanager.h"
+#include "world.h"
 
 Player::Player() : Entity()
 {
@@ -48,6 +49,11 @@ void Player::frame()
     {
         pos.y ++;
     }
+    if(!g_world.isFree(IntRect(pos.x, pos.y, 16, 29), this))
+    {
+      pos.x = oldX;
+      pos.y = oldY;
+    }
 
     if(anim_counter++ > 10)
     {
@@ -84,4 +90,3 @@ bool Player::mustRemove() const
 IntRect Player::getRect() const{
     return IntRect(pos.x-8, pos.y-15, 16, 29);
 }
-
