@@ -38,7 +38,7 @@ IntRect Enemy::getRect() const{
 
 
 void Enemy::draw(){
-    sprite.setPosition(pos.x, pos.y);
+    sprite.setPosition(getRect().left, getRect().top);
     g_window.draw(sprite);
 }
 

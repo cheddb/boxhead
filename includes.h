@@ -10,8 +10,8 @@
 
 
 struct Pos{
-    int x,  y;
-    Pos(int X=0,int Y=0){x=X;y=Y;}
+    float x,  y;
+    Pos(float X=0,float Y=0){x=X;y=Y;}
 
     Pos operator+(Pos const& other) const{return Pos(x+other.x, y+other.y);}
     Pos operator-(Pos const& other) const{return Pos(x-other.x, y-other.y);}

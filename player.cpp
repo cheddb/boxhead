@@ -49,23 +49,17 @@ void Player::frame()
     {
         pos.y ++;
     }
-    if(!g_world.isFree(IntRect(pos.x, pos.y, 16, 29), this))
+    if(!g_world.isFree(getRect(), this))
     {
       pos.x = oldX;
       pos.y = oldY;
     }
 
-    if(anim_counter++ > 10)
-    {
-      if(pos.y != oldY || pos.x != oldX)
-      {
+    if(anim_counter++ > 10){
         ++anim_step %= 4;
-      }
-      else
-      {
-        anim_step = 0;
-      }
-      anim_counter = 0;
+        if(oldX == pos.x && oldY == pos.y)
+            anim_step = 0;
+        anim_counter = 0;
     }
 
 }
@@ -76,7 +70,7 @@ void Player::draw()
   int s_pos_x = anim_step*16;
   int s_pos_y = anim_dir;
 
-  sprite.setPosition(float(pos.x), float(pos.y));
+  sprite.setPosition(float(pos.x-8), float(pos.y-15));
 
   sprite.setTextureRect( IntRect(s_pos_x, s_pos_y, 16, 29));
   g_window.draw(sprite);

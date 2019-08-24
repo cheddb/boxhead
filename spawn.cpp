@@ -35,7 +35,7 @@ void Spawn::frame()
 
 
 void Spawn::draw(){
-    sprite.setPosition(pos.x, pos.y);
+    sprite.setPosition(pos.x-16, pos.y-16);
     g_window.draw(sprite);
 
 }
