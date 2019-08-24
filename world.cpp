@@ -37,6 +37,7 @@ void World::cleanEntities()
         if(entities[i]->mustRemove())
         {
             nbEntities--;
+            delete entities[i];
             entities[i] = entities[nbEntities];
             i--;
         }
