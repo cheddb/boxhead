@@ -3,7 +3,7 @@
 #include "world.h"
 
 bool collision(Entity* e){
-  if(e->getType() != Entity::Type_Projectile)
+  if(e->getType() == Entity::Type_Enemy)
   {
     e->getDamages(1);
     return true;
@@ -35,7 +35,7 @@ void Projectile::frame()
   for(int i=0; i<speed;i++)
   {
     pos += dir/32;
-    if(g_world.areaEffect(IntRect(pos.x, pos.y, 1, 1), collision)>1)
+    if(g_world.areaEffect(IntRect(pos.x, pos.y, 1, 1), collision)>0)
     {
       life=0;
       return;
