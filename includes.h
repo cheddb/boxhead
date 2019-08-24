@@ -6,6 +6,8 @@
 #include <vector>
 #include <math.h>
 #include <cassert>
+#include <iostream>
+
 
 struct Pos{
     int x,  y;
