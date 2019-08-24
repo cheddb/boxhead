@@ -7,6 +7,13 @@ World::World()
     nbEntities = 1;
 }
 
+World::~World()
+{
+    for(int i = 0;i<nbEntities;i++)
+    {
+        delete entities[i];
+    }
+}
 
 void World::frame()
 {
@@ -37,6 +44,7 @@ void World::cleanEntities()
         if(entities[i]->mustRemove())
         {
             nbEntities--;
+            delete entities[i];
             entities[i] = entities[nbEntities];
             i--;
         }

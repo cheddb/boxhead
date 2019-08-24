@@ -6,6 +6,7 @@
 class World{
 public:
     World();
+    ~World();
 
 
     void addEntity(Entity *e);
