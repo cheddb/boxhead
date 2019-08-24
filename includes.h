@@ -17,4 +17,6 @@ class World;
 
 extern World g_world;
 
+extern RenderWindow g_window;
+
 #endif // INCLUDES_H
