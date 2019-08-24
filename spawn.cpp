@@ -5,12 +5,12 @@
 
 #include <iostream>
 
-Spawn::Spawn()
+Spawn::Spawn() : Entity()
 {
     pos.x = 50;
     pos.y = 0;
     frameSinceLastSpawn = 0;
-    spawnRate = 1000;
+    spawnRate = 100;
 }
 Spawn::~Spawn()
 {
@@ -20,9 +20,8 @@ Spawn::~Spawn()
 void Spawn::frame()
 {
     frameSinceLastSpawn++;
-    if(frameSinceLastSpawn>spawnRate)
+    if(frameSinceLastSpawn%spawnRate==0)
     {
-        std::cout<<"spaning"<<std::endl;
         Enemy* created = new Enemy(pos);
         g_world.addEntity(created);
     }

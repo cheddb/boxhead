@@ -18,7 +18,7 @@ int main(){
 //    sf::Texture texture;
 //    if (!texture.loadFromFile("cute_image.jpg"))
 //        return EXIT_FAILURE;
-    sf::Sprite sprite(g_tex.getTexture(TextureManager::Character));
+//    sf::Sprite sprite(g_tex.getTexture(TextureManager::Character));
 //    // Create a graphical text to display
 //    sf::Font font;
 //    if (!font.loadFromFile("arial.ttf"))
@@ -46,13 +46,12 @@ int main(){
 
         sf::sleep(sf::milliseconds(15));
 
-        view.reset(sf::FloatRect(g_world.getPlayer()->pos().x-400, g_world.getPlayer()->pos().y-300, 800, 600));
+        view.reset(sf::FloatRect(g_world.getPlayer()->getPos().x-400, g_world.getPlayer()->getPos().y-300, 800, 600));
 
         g_world.frame();
 
         g_world.draw();
 
-        g_window.draw(sprite);
 
         g_window.setView(view);
 
