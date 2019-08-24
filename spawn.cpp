@@ -22,7 +22,6 @@ void Spawn::frame()
     frameSinceLastSpawn++;
     if(frameSinceLastSpawn>spawnRate)
     {
-        std::cout<<"spaning"<<std::endl;
         Enemy* created = new Enemy(pos);
         g_world.addEntity(created);
     }
