@@ -11,7 +11,8 @@ public:
 
     virtual bool mustRemove() const=0;
 
-    void draw();
+    virtual void draw() = 0;
+    virtual void frame() = 0;
 protected:
     int life;
     Pos pos;

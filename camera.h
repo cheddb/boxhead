@@ -7,9 +7,11 @@ class Camera{
 public:
     Camera();
 
-    void draw(sf::Sprite s, Pos p);
+    void draw(sf::Sprite const& s, Pos p);
 private:
     Pos offset;
 };
+
+extern Camera g_cam;
 
 #endif // CAMERA_H
