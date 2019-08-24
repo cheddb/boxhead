@@ -22,7 +22,7 @@ public:
     std::vector<Player *> collision(IntRect const& r) const;
 
 
-    /// applies the callback to every entity in the given rect. return mn of col detected
+    /// applies the callback to every entity in the given rect. return nb of true the callback returned
     int areaEffect(IntRect const& r, EntityCallback callback);
 private:
     static const int max_entities = 500;

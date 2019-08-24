@@ -32,7 +32,7 @@ using namespace sf;
 class World;
 class Entity;
 
-typedef void (*EntityCallback)(Entity*);
+typedef bool (*EntityCallback)(Entity*);
 
 extern World g_world;
 

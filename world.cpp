@@ -46,10 +46,8 @@ std::vector<Player *> World::collision(const IntRect &r) const{
 int World::areaEffect(const IntRect &r, EntityCallback callback){
     int ans = 0;
     for(int i = 0; i < nbEntities; i++){
-        if(entities[i]->getRect().intersects(r)){
-            callback(entities[i]);
-            ans++;
-        }
+        if(entities[i]->getRect().intersects(r))
+            ans += callback(entities[i]);
     }
     return ans;
 }
