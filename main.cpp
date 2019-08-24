@@ -10,8 +10,6 @@ RenderWindow g_window(sf::VideoMode(800, 600), "SFML window");
 int main(){
     // Create the main window
     sf::View view(sf::FloatRect(0, 0, 1000, 600));
-    g_window.setView(view);
-
 
 
 
@@ -46,15 +44,17 @@ int main(){
         // Clear screen
         g_window.clear();
 
-        sf::sleep(sf::milliseconds(16));
+        sf::sleep(sf::milliseconds(15));
 
-
+        view.reset(sf::FloatRect(g_world.getPlayer()->pos().x-400, g_world.getPlayer()->pos().y-300, 800, 600));
 
         g_world.frame();
 
         g_world.draw();
 
         g_window.draw(sprite);
+
+        g_window.setView(view);
 
         // Update the window
         g_window.display();

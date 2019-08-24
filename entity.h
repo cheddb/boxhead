@@ -13,10 +13,13 @@ public:
 
     virtual void draw() = 0;
     virtual void frame() = 0;
+
+    inline Pos getPos() const{return pos;}
 protected:
     int life;
     Pos pos;
 
+    Sprite sprite;
 };
 
 #endif // ENTITY_H
