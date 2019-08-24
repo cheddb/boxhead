@@ -7,6 +7,7 @@ class World{
 public:
     World();
 
+
     void addEntity(Entity *e);
     void draw();
     void frame();

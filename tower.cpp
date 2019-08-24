@@ -4,6 +4,10 @@ Tower::Tower()
 {
 
 }
+Tower::~Tower()
+{
+
+}
 
 void Tower::frame()
 {
