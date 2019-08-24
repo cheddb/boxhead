@@ -7,7 +7,7 @@ World::World()
 }
 
 
-World::frame()
+void World::frame()
 {
     for(int i = 0;i<nbEntities;i++)
     {
@@ -15,7 +15,7 @@ World::frame()
     }
 }
 
-World::draw()
+void World::draw()
 {
     for(int i = 0;i<nbEntities;i++)
     {
@@ -23,13 +23,13 @@ World::draw()
     }
 }
 
-World::addEntity(Entity *e)
+void World::addEntity(Entity *e)
 {
     entities[nbEntities] = e;
     nbEntities ++;
 }
 
-World::cleanEntities()
+void World::cleanEntities()
 {
     for(int i = 0;i<nbEntities;i++)
     {

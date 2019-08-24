@@ -6,18 +6,18 @@ Player::Player()
 }
 
 
-Player::frame()
+void Player::frame()
+{
+
+}
+
+
+void Player::draw()
 {
     
 }
 
-
-Player::draw()
-{
-    
-}
-
-Player::mustRemove()
+void Player::mustRemove()
 {
     return false;
 }
