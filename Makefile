@@ -1,5 +1,5 @@
 EXEC= BOXHead
-GAME= main.o camera.o world.o texturemanager.o
+GAME= main.o world.o texturemanager.o
 ENTITIES= entity.o enemy.o player.o projectile.o tower.o spawn.o
 DEPS= includes.h
 

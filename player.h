@@ -11,7 +11,7 @@ public:
     bool mustRemove() const;
 
     int anim_step;
-    float dir;
+    int anim_dir;
 
     void draw();
     void frame();
