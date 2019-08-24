@@ -8,6 +8,7 @@
 World::World()
 {
     entities[0] = new Player();
+    player = entities[0];
     entities[1] = new Spawn();
     nbEntities = 2;
 }
@@ -18,6 +19,11 @@ World::~World()
     {
         delete entities[i];
     }
+}
+
+Player* World::getPlayer()
+{
+    return player;
 }
 
 void World::frame()

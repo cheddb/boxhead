@@ -12,6 +12,7 @@ public:
     void addEntity(Entity *e);
     void draw();
     void frame();
+    Player* getPlayer();
 
 
 private:
@@ -21,6 +22,7 @@ private:
 
     /// rm the entities flagged 'mustRemove'
     void cleanEntities();
+    Player* player;
 };
 
 #endif // WORLD_H
