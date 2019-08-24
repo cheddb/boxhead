@@ -13,6 +13,9 @@ public:
 
     virtual void draw();
     virtual void frame();
+
+    Pos dir;
+    int speed;
 };
 
 #endif // PROJECTILE_H
