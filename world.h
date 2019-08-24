@@ -2,6 +2,7 @@
 #define WORLD_H
 
 #include "entity.h"
+#include "player.h"
 
 class World{
 public:

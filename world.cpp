@@ -7,8 +7,8 @@
 
 World::World()
 {
-    entities[0] = new Player();
-    player = entities[0];
+    player = new Player();
+    entities[0] = player;
     entities[1] = new Spawn();
     nbEntities = 2;
 }
