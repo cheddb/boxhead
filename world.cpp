@@ -54,7 +54,6 @@ int World::areaEffect(const IntRect &r, EntityCallback callback){
 
 void World::frame()
 {
-  printf("nbEntities : %d\n", nbEntities);
     for(int i = 0;i<nbEntities;i++)
     {
         entities[i]->frame();

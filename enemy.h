@@ -17,6 +17,8 @@ public:
 
     Type getType() const{return Type_Enemy;}
 
+    Pos dev_speed;
+
 };
 
 #endif // ENEMY_H
