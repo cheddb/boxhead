@@ -24,7 +24,6 @@ SOURCES += \
     enemy.cpp \
     player.cpp \
     tower.cpp \
-    camera.cpp \
     texturemanager.cpp
 
 # Default rules for deployment.
@@ -39,6 +38,5 @@ HEADERS += \
     enemy.h \
     player.h \
     tower.h \
-    camera.h \
     includes.h \
     texturemanager.h
