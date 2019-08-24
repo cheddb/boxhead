@@ -1,5 +1,6 @@
 #include "world.h"
 
+#include "player.h"
 World::World()
 {
     entities[0] = new Player();
