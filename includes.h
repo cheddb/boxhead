@@ -19,10 +19,11 @@ struct Pos{
     Pos& operator+=(Pos const& other){x += other.x; y+=other.y;return *this;}
 
     float norm() const{return sqrtf(float(x)*x+float(y)*y);}
+    Pos normalize() const{return (*this)/norm();}
 
-    Pos operator*(float k) const{return Pos(int(x*k),int(y*k));}
+    Pos operator*(float k) const{return Pos(x*k,y*k);}
     Pos& operator*=(float k) {x *=k; y*=k;return *this;}
-    Pos operator/(float k) const{return Pos(int(x/k),int(y/k));}
+    Pos operator/(float k) const{return Pos(x/k,y/k);}
 };
 struct Rect{
     int x,  y, w, h;

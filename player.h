@@ -3,6 +3,7 @@
 
 #include "entity.h"
 #include <math.h>
+#include <SFML/Audio/Sound.hpp>
 
 class Player : public Entity{
 public:
@@ -20,6 +21,10 @@ public:
     IntRect getRect() const;
 
     Type getType() const{return Type_Player;}
+
+private:
+    SoundBuffer shotgunSound;
+    sf::Sound sound;
 
 };
 

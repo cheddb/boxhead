@@ -8,6 +8,8 @@ Player::Player() : Entity()
     life = 100;
     sprite.setTexture(g_tex.getTexture(TextureManager::Character));
     sprite.setTextureRect(IntRect(0, 0, 16, 29));
+
+    shotgunSound.loadFromFile("gfx/shotgun.ogg");
 }
 Player::~Player()
 {
@@ -63,25 +65,21 @@ void Player::frame()
         anim_counter = 0;
     }
 
-    if(Mouse::isButtonPressed(Mouse::Left))
+    static int counter = 0;
+    counter++;
+
+    if(Mouse::isButtonPressed(Mouse::Left) && counter%10==0)
     {
-      Pos initial_pos;
-      if(delta_y>abs(delta_x))
-        initial_pos = Pos(pos.x, pos.y+15);
-      else if(delta_x>abs(delta_y))
-        initial_pos = Pos(pos.x+8, pos.y);
-      else if(delta_y < -abs(delta_x))
-        initial_pos = Pos(pos.x, pos.y-8);
-      else
-        initial_pos = Pos(pos.x-14, pos.y);
+        Pos initial_pos=pos;
 
-      Projectile* created = new Projectile(initial_pos);
-      Pos objective = Pos(delta_x*10, delta_y*10);
-      created->dir = objective*(256.f/objective.norm());
-      g_world.addEntity(created);
+        Pos dir = Pos(delta_x, delta_y).normalize()*8.f;
+        Projectile* created = new Projectile(initial_pos+dir*2.f);
+        created->dir = dir;
+        g_world.addEntity(created);
 
+        sound.setBuffer(shotgunSound);
+        sound.play();
     }
-
 }
 
 
