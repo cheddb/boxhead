@@ -1,12 +1,7 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
-#include <SFML/Audio.hpp>
-#include <SFML/Graphics.hpp>
-
-struct Pos{
-    int x,  y;
-};
+#include "includes.h"
 
 class Entity{
 public:

@@ -21,7 +21,8 @@ SOURCES += \
     projectile.cpp \
     enemy.cpp \
     player.cpp \
-    tower.cpp
+    tower.cpp \
+    camera.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -34,4 +35,6 @@ HEADERS += \
     projectile.h \
     enemy.h \
     player.h \
-    tower.h
+    tower.h \
+    camera.h \
+    includes.h
