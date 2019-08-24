@@ -24,7 +24,8 @@ SOURCES += \
     enemy.cpp \
     player.cpp \
     tower.cpp \
-    camera.cpp
+    camera.cpp \
+    texturemanager.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -39,4 +40,5 @@ HEADERS += \
     player.h \
     tower.h \
     camera.h \
-    includes.h
+    includes.h \
+    texturemanager.h

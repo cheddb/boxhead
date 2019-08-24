@@ -1,11 +1,14 @@
 #include "includes.h"
 #include "world.h"
+#include "texturemanager.h"
 
 World g_world;
 
 int main(){
     // Create the main window
     sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
+    sf::View view(sf::FloatRect(0, 0, 1000, 600));
+    window.setView(view);
 
 //    // Load a sprite to display
 //    sf::Texture texture;
