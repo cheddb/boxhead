@@ -86,7 +86,12 @@ void Player::draw()
     sprite.setTextureRect( IntRect(s_pos_x, s_pos_y, 16, 29));
     g_window.draw(sprite);
 
-    sf::Text text("Hello SFML", g_font, 30);
+    char buffer[500];
+    sprintf(buffer, "Shotgun : %d", amo[weapon]);
+
+    sf::Text text(buffer, g_font, 7);
+
+    text.setPosition(getRect().left, getRect().top-5);
 
     g_window.draw(text);
 }
