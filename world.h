@@ -2,6 +2,7 @@
 #define WORLD_H
 
 #include "entity.h"
+#include "player.h"
 
 class World{
 public:
@@ -12,6 +13,7 @@ public:
     void addEntity(Entity *e);
     void draw();
     void frame();
+    Player* getPlayer();
 
 
 private:
@@ -21,6 +23,7 @@ private:
 
     /// rm the entities flagged 'mustRemove'
     void cleanEntities();
+    Player* player;
 };
 
 #endif // WORLD_H
