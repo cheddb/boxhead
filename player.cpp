@@ -17,7 +17,7 @@ void Player::draw()
     
 }
 
-void Player::mustRemove() const
+bool Player::mustRemove() const
 {
     return false;
 }

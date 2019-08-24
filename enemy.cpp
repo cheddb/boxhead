@@ -17,7 +17,7 @@ void Enemy::draw()
     
 }
 
-void Enemy::mustRemove() const
+bool Enemy::mustRemove() const
 {
     return false;
 }
