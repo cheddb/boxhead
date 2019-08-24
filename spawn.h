@@ -16,6 +16,8 @@ public:
     
     IntRect getRect() const;
 
+    Type getType() const{return Type_Spawner;}
+
 private:
     
     int frameSinceLastSpawn;

@@ -8,6 +8,7 @@ public:
     enum {
         Character,///texture of the character
         Log,
+        Objects,
 
         NbTexture
     };

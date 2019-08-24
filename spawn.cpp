@@ -2,15 +2,18 @@
 
 #include "enemy.h"
 #include "world.h"
-
-#include <iostream>
+#include "texturemanager.h"
 
 Spawn::Spawn() : Entity()
 {
     pos.x = 50;
     pos.y = 0;
     frameSinceLastSpawn = 0;
-    spawnRate = 100;
+    spawnRate = 60;
+
+    sprite.setTexture(g_tex.getTexture(TextureManager::Objects));
+    sprite.setTextureRect(IntRect(416, 0, 32, 32));
+
 }
 Spawn::~Spawn()
 {
@@ -20,7 +23,7 @@ Spawn::~Spawn()
 void Spawn::frame()
 {
     if(frameSinceLastSpawn%spawnRate==0){
-        Enemy* created = new Enemy(pos + Pos(30, 0));
+        Enemy* created = new Enemy(pos + Pos(35, 0));
 
         if(g_world.isFree(created->getRect(), nullptr))
             g_world.addEntity(created);
@@ -31,8 +34,9 @@ void Spawn::frame()
 }
 
 
-void Spawn::draw()
-{
+void Spawn::draw(){
+    sprite.setPosition(pos.x, pos.y);
+    g_window.draw(sprite);
 
 }
 
@@ -41,5 +45,5 @@ bool Spawn::mustRemove() const {
 }
 
 IntRect Spawn::getRect() const{
-    return IntRect(pos.x, pos.y, 0, 0);
+    return IntRect(pos.x-16, pos.y-16, 32, 32);
 }

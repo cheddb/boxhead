@@ -5,6 +5,9 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <math.h>
+#include <cassert>
+#include <iostream>
+
 
 struct Pos{
     int x,  y;
@@ -29,7 +32,7 @@ using namespace sf;
 class World;
 class Entity;
 
-typedef void (*EntityCallback)(Entity*);
+typedef bool (*EntityCallback)(Entity*);
 
 extern World g_world;
 

@@ -19,6 +19,8 @@ public:
 
     IntRect getRect() const;
 
+    Type getType() const{return Type_Player;}
+
 };
 
 #endif // PLAYER_H
