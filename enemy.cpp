@@ -16,8 +16,14 @@ Enemy::~Enemy(){
 void Enemy::frame(){
     IntRect r;
     r = getRect();
-    r.top += rand() %3 - 1;
-    r.left += rand() %3 - 1;
+
+    Player* p = g_world.getPlayer();
+
+    Pos dir = p->getPos()-pos;
+    dir *= 2.f / dir.norm(); // speed of 5
+
+    r.top += dir.y;
+    r.left += dir.x;
 
     if(g_world.isFree(r, this)){
         pos.x = r.left+16;
