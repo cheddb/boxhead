@@ -16,8 +16,8 @@ Projectile::Projectile(Pos start) : Entity()
 {
   pos = start;
 
-  life=100;
-  speed=1; //TODO change in fct of projectile
+  life=10;
+  speed=2; //TODO change in fct of projectile
   sprite.setTexture(g_tex.getTexture(TextureManager::Objects));
   sprite.setTextureRect(IntRect(231, 56, 1, 1));
 }
@@ -32,7 +32,7 @@ void Projectile::frame()
 {
   if(life==0)
     return;
-  for(int i=0; i<speed;++i)
+  for(int i=0; i<speed;i++)
   {
     pos += dir/32;
     if(g_world.areaEffect(IntRect(pos.x, pos.y, 1, 1), collision)>1)

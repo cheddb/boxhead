@@ -67,13 +67,13 @@ void Player::frame()
     {
       Pos initial_pos;
       if(delta_y>abs(delta_x))
-        initial_pos = Pos(pos.x+8, pos.y+29);
-      else if(delta_x>abs(delta_y))
-        initial_pos = Pos(pos.x+16, pos.y+15);
-      else if(delta_y < -abs(delta_x))
-        initial_pos = Pos(pos.x+8, pos.y);
-      else
         initial_pos = Pos(pos.x, pos.y+15);
+      else if(delta_x>abs(delta_y))
+        initial_pos = Pos(pos.x+8, pos.y);
+      else if(delta_y < -abs(delta_x))
+        initial_pos = Pos(pos.x, pos.y-8);
+      else
+        initial_pos = Pos(pos.x-14, pos.y);
 
       Projectile* created = new Projectile(initial_pos);
       Pos objective = Pos(m_worldPos.x*10, m_worldPos.y*10);
