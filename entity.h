@@ -16,7 +16,7 @@ public:
     void getDamages(int damages);
 
     enum Type{
-        Type_Enemy, Type_Projectile, Type_Player, Type_Tower, Type_Spawner
+        Type_Enemy, Type_Projectile, Type_Player, Type_Tower, Type_Spawner, Type_Item
     };
 
     virtual Type getType() const = 0;

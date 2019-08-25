@@ -109,15 +109,42 @@ void Player::draw()
     text.setPosition(getRect().left, getRect().top-5);
 
     g_window.draw(text);
+
+
+    if(life!=100){//print life bar
+        //background
+        RectangleShape rect;
+        rect.setSize(sf::Vector2f(32, 3));
+        rect.setOutlineColor(sf::Color::Green);
+        rect.setFillColor(sf::Color::Transparent);
+        rect.setOutlineThickness(1.f);
+        rect.setPosition(getRect().left, getRect().top-5);
+        g_window.draw(rect);
+
+
+        rect.setSize(sf::Vector2f(32*life/100, 3));
+        rect.setFillColor(sf::Color::Green);
+        rect.setOutlineThickness(0.f);
+        g_window.draw(rect);
+    }
 }
 
 bool Player::mustRemove() const
 {
-    return life<=0;
+    return false;
 }
 
 IntRect Player::getRect() const{
     return IntRect(pos.x-8, pos.y-15, 16, 29);
+}
+
+void Player::reload(){
+    if(rand() % 4 == 0){
+        life = 100;
+        return;
+    }
+
+    amo[rand()%NbWeapon] = 10;
 }
 
 void Player::shoot(Pos viewDir){

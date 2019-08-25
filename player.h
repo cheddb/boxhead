@@ -28,6 +28,8 @@ public:
         NbWeapon
     };
 
+    /// reload completely a random weapon
+    void reload();
 private:
     SoundBuffer shotgunSound, dryGunSound;
     sf::Sound sound;

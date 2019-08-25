@@ -16,7 +16,6 @@ public:
     void frame();
     IntRect getRect() const;
 
-
     Pos dir;
     int speed;
     Type getType() const{return Type_Projectile;}

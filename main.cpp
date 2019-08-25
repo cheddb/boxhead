@@ -16,7 +16,7 @@ int main(){
 
 
     // Start the game loop
-    while (g_window.isOpen())
+    while (g_window.isOpen() && !sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
     {
         // Process events
         sf::Event event;
@@ -25,6 +25,7 @@ int main(){
             // Close window: exit
             if (event.type == sf::Event::Closed)
                 g_window.close();
+
         }
         // Clear screen
         g_window.clear();
