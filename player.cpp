@@ -12,6 +12,8 @@ Player::Player() : Entity()
     shotgunSound.loadFromFile("gfx/shotgun.ogg");
     dryGunSound.loadFromFile("gfx/gun-dry.wav");
     amo[Shotgun] = 10;
+    amo[Grenade] = 10;
+    amo[Carrot] = 1000;
 }
 Player::~Player()
 {
@@ -66,6 +68,18 @@ void Player::frame()
         if(oldX == pos.x && oldY == pos.y)
             anim_step = 0;
         anim_counter = 0;
+
+        sf::Event event;
+
+        while (g_window.pollEvent(event))
+        {
+            //Gun selection
+            if (event.mouseWheelScroll.wheel == sf::Mouse::VerticalWheel)
+            {
+                ++weapon %= NbWeapon;
+                continue;
+            }
+        }
     }
 
 
@@ -88,7 +102,8 @@ void Player::draw()
     g_window.draw(sprite);
 
     char buffer[500];
-    sprintf(buffer, "Shotgun : %d", amo[weapon]);
+    const char* wName[NbWeapon] = {"Shotgun", "Grenade", "Carrot"};
+    sprintf(buffer, "%s : %d", wName[weapon], amo[weapon]);
 
     sf::Text text(buffer, g_font, 9);
 
@@ -157,7 +172,7 @@ void Player::shoot(Pos viewDir){
     Pos initial_pos=pos;
 
     Pos dir = viewDir.normalize()*8.f;
-    Projectile* created = new Projectile(initial_pos+dir*2.f);
+    Projectile* created = new Projectile(initial_pos+dir*2.f, static_cast<Weapon> (weapon));
     created->dir = dir;
     g_world.addEntity(created);
 

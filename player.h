@@ -4,6 +4,7 @@
 #include "entity.h"
 #include <math.h>
 #include <SFML/Audio/Sound.hpp>
+// #include <SFML/Event.hpp>
 
 class Player : public Entity{
 public:
@@ -21,6 +22,11 @@ public:
     IntRect getRect() const;
 
     Type getType() const{return Type_Player;}
+    
+    enum Weapon{
+        Shotgun, Grenade, Carrot,
+        NbWeapon
+    };
 
     /// reload completely a random weapon
     void reload();
@@ -29,14 +35,9 @@ private:
     sf::Sound sound;
 
 
-    enum Weapon{
-        Shotgun, Grenade,
-        NbWeapon
-    };
-
-    /// nb of ammunition per weapon
+    /// nb of munitions per weapon
     int amo[NbWeapon] = {0};
-    Weapon weapon = Shotgun;
+    int weapon = Shotgun;
 
 
     void shoot(Pos viewDir);
