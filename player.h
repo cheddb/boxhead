@@ -30,10 +30,14 @@ public:
 
     /// reload completely a random weapon
     void reload();
+
+    void setImpact(Pos i);
 private:
     SoundBuffer shotgunSound, dryGunSound;
     sf::Sound sound;
 
+
+    Pos impact;
 
     /// nb of munitions per weapon
     int amo[NbWeapon] = {0};

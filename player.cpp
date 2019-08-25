@@ -40,6 +40,9 @@ void Player::frame()
       anim_dir = 97;
 
 
+    pos += impact;
+    impact *= 0.9f;
+
     const float speed = 2.f;
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
     {
@@ -65,7 +68,10 @@ void Player::frame()
 
     if(anim_counter++ > 10){
         ++anim_step %= 4;
-        if(oldX == pos.x && oldY == pos.y)
+        if(!(sf::Keyboard::isKeyPressed(sf::Keyboard::Left) ||
+                sf::Keyboard::isKeyPressed(sf::Keyboard::Right) ||
+                sf::Keyboard::isKeyPressed(sf::Keyboard::Up) ||
+                sf::Keyboard::isKeyPressed(sf::Keyboard::Down)))
             anim_step = 0;
         anim_counter = 0;
 
@@ -146,6 +152,11 @@ void Player::reload(){
     }
 
     amo[rand()%NbWeapon] = 10;
+}
+
+void Player::setImpact(Pos i)
+{
+    impact = i;
 }
 
 void Player::shoot(Pos viewDir){
