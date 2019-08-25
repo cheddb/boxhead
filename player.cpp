@@ -38,21 +38,22 @@ void Player::frame()
       anim_dir = 97;
 
 
+    const float speed = 2.f;
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
     {
-        pos.x --;
+        pos.x -=speed;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
     {
-        pos.x ++;
+        pos.x +=speed;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
     {
-        pos.y --;
+        pos.y -=speed;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
     {
-        pos.y ++;
+        pos.y +=speed;
     }
     if(!g_world.isFree(getRect(), this))
     {
@@ -89,7 +90,7 @@ void Player::draw()
     char buffer[500];
     sprintf(buffer, "Shotgun : %d", amo[weapon]);
 
-    sf::Text text(buffer, g_font, 7);
+    sf::Text text(buffer, g_font, 9);
 
     text.setPosition(getRect().left, getRect().top-5);
 
@@ -103,7 +104,7 @@ void Player::draw()
         rect.setOutlineColor(sf::Color::Green);
         rect.setFillColor(sf::Color::Transparent);
         rect.setOutlineThickness(1.f);
-        rect.setPosition(getRect().left, getRect().top-5);
+        rect.setPosition(getRect().left, getRect().top-10);
         g_window.draw(rect);
 
 

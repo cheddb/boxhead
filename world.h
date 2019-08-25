@@ -25,6 +25,9 @@ public:
     /// applies the callback to every entity in the given rect. return nb of true the callback returned
     int areaEffect(IntRect const& r, EntityCallback callback);
     int areaEffect(IntRect const& r, EntityGenericCallback callback, const void *data);
+
+    Entity **firstEntity() {return entities;}
+    Entity **lastEntity() {return entities + nbEntities;}
 private:
     static const int max_entities = 500;
     Entity *entities[max_entities];
