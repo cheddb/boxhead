@@ -35,6 +35,7 @@ class World;
 class Entity;
 
 typedef bool (*EntityCallback)(Entity*);
+typedef bool (*EntityGenericCallback)(Entity*, const void*);
 
 extern World g_world;
 

@@ -50,11 +50,20 @@ int World::areaEffect(const IntRect &r, EntityCallback callback){
     }
     return ans;
 }
+int World::areaEffect(const IntRect &r, EntityGenericCallback callback, const void *data){
+    int ans = 0;
+    for(int i = 0; i < nbEntities; i++){
+        if(entities[i]->getRect().intersects(r))
+            ans += callback(entities[i], data);
+    }
+    return ans;
+}
+
 
 void World::frame()
 {
     //add some chests
-    if(rand() % 60 == 0)
+    if(rand() % 180 == 0)
         addEntity(new Item());
 
 

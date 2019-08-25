@@ -124,6 +124,11 @@ IntRect Player::getRect() const{
 }
 
 void Player::reload(){
+    if(rand() % 4 == 0){
+        life = 100;
+        return;
+    }
+
     amo[rand()%NbWeapon] = 10;
 }
 
