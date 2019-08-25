@@ -24,6 +24,8 @@ public:
     inline Pos getPos() const{return pos;}
 
     virtual IntRect getRect() const = 0;
+    void setPos(const Pos &value);
+
 protected:
     int life;
     Pos pos;
